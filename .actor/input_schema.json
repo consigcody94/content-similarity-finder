@@ -1,0 +1,94 @@
+{
+  "title": "Content Similarity Finder Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "content": {
+      "title": "Content Items",
+      "type": "array",
+      "description": "Array of content items to analyze (JSON array)",
+      "editor": "json",
+      "example": [
+        {"id": "1", "text": "The quick brown fox jumps over the lazy dog"},
+        {"id": "2", "text": "A quick brown fox jumps over a lazy dog"}
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier"
+          },
+          "text": {
+            "type": "string",
+            "description": "Content text to analyze"
+          }
+        },
+        "required": ["id", "text"]
+      }
+    },
+    "similarityThreshold": {
+      "title": "Similarity Threshold (0-1)",
+      "type": "number",
+      "description": "Minimum similarity score to report (0.8 = 80% similar)",
+      "default": 0.8,
+      "minimum": 0,
+      "maximum": 1
+    },
+    "algorithms": {
+      "title": "Similarity Algorithms",
+      "type": "object",
+      "description": "Which algorithms to use",
+      "editor": "json",
+      "default": {
+        "cosine": true,
+        "levenshtein": true,
+        "fuzzy": true,
+        "jaccard": true
+      },
+      "properties": {
+        "cosine": {
+          "type": "boolean",
+          "description": "Cosine similarity (best for semantic similarity)"
+        },
+        "levenshtein": {
+          "type": "boolean",
+          "description": "Edit distance (best for typos, minor changes)"
+        },
+        "fuzzy": {
+          "type": "boolean",
+          "description": "Fuzzy matching (best for approximate matches)"
+        },
+        "jaccard": {
+          "type": "boolean",
+          "description": "Jaccard similarity (best for word overlap)"
+        }
+      }
+    },
+    "caseSensitive": {
+      "title": "Case Sensitive",
+      "type": "boolean",
+      "description": "Treat uppercase/lowercase as different",
+      "default": false
+    },
+    "ignoreWhitespace": {
+      "title": "Ignore Whitespace",
+      "type": "boolean",
+      "description": "Normalize whitespace before comparison",
+      "default": true
+    },
+    "minLength": {
+      "title": "Minimum Text Length",
+      "type": "number",
+      "description": "Ignore texts shorter than this (characters)",
+      "default": 10
+    },
+    "groupByDuplicate": {
+      "title": "Group By Duplicate",
+      "type": "boolean",
+      "description": "Group similar items together in output",
+      "default": true
+    }
+  },
+  "required": ["content"]
+}

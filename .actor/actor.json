@@ -1,0 +1,10 @@
+{
+  "actorSpecification": 1,
+  "name": "content-similarity-finder",
+  "title": "Content Similarity & Duplicate Finder",
+  "description": "Detect duplicate and similar content using fuzzy matching, cosine similarity, TF-IDF, and Levenshtein distance. Perfect for content deduplication, plagiarism detection, data cleaning, and content moderation.",
+  "version": "1.0.0",
+  "input": "./input_schema.json",
+  "dockerfile": "./Dockerfile",
+  "readme": "./README.md"
+}

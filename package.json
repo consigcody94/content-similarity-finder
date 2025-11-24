@@ -1,0 +1,29 @@
+{
+  "name": "content-similarity-finder",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Find duplicate and similar content using fuzzy matching, cosine similarity, and Levenshtein distance. Perfect for deduplication, plagiarism detection, content moderation, and data cleaning.",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "node dist/main.js",
+    "build": "tsc",
+    "dev": "tsc && node dist/main.js",
+    "test": "echo \"Tests coming soon\" && exit 0"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "apify": "^3.2.0",
+    "crawlee": "^3.7.0",
+    "fuzzyset": "^1.0.7",
+    "string-similarity": "^4.0.4",
+    "fastest-levenshtein": "^1.0.16",
+    "natural": "^6.10.0",
+    "typescript": "^5.3.0",
+    "@types/node": "^20.0.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
